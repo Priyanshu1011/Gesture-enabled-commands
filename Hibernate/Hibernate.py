@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import os
+counter=0
 def cameravision():
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FPS, 30)
@@ -38,19 +39,18 @@ def cameravision():
                         elif lms[0] == 0:
                             handBottomX, handBottomY = lms[1], lms[2]
                     if (indexY < handBottomY) and (indexY > indexMid):
+                        global counter
                         cv2.rectangle(handsFrame, (indexX, indexY), (pinkyX, handBottomY), (0, 0, 255), 2)
-                        cv2.putText(handsFrame, fistWarning, (pinkyX + 2, indexY - 2), (font), .7,
-                                    (0, 0, 255), 1, cv2.LINE_4)
-                        os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
-                        cv2.destroyAllWindows() #sleepcmd
-                        quit()
+                        cv2.putText(handsFrame, fistWarning, (pinkyX + 2, indexY - 2), (font), .7,(0, 0, 255), 1, cv2.LINE_4)
+                        counter+=1
+                        if counter>12:
+                            print("Fist Recognized")
+                            os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
+                            cv2.destroyAllWindows() #sleepcmd
+                            quit()
             cv2.imshow("Fist Detector", handsFrame)
-            k = cv2.waitKey(10) & 0xFF
-            #  1 is the escape key
-            if k == "q":
+            if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-            else:
-                pass
         cap.release()
     except cv2.error as e:
         print(str(e))
