@@ -1,4 +1,4 @@
-#shutdown
+#shutdown #fist closed with thumb out
 import cv2
 import mediapipe as mp
 import os
