@@ -1,4 +1,4 @@
-#hibernate
+#hibernate #fist closed with thumb in
 import cv2
 import mediapipe as mp
 import os
