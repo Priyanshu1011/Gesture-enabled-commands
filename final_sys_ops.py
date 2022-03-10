@@ -71,7 +71,7 @@ def cameravision():
                         cv2.rectangle(handsFrame, (indexX, indexY), (pinkyX, handBottomY), (0, 0, 255), 2)
                         cv2.putText(handsFrame, pext, (pinkyX + 2, indexY - 2), (font), .7,(0, 0, 255), 1, cv2.LINE_4)
                         counter+=1
-                        if counter>5:
+                        if counter>3:
                             print("\nHibernation\n")
                             os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
                             cv2.destroyAllWindows() #Hibcmd
@@ -81,7 +81,7 @@ def cameravision():
                         cv2.rectangle(handsFrame, (indexX, indexY), (pinkyX, handBottomY), (0, 0, 255), 2)
                         cv2.putText(handsFrame, pext, (pinkyX + 2, indexY - 2), (font), .7,(0, 0, 255), 1, cv2.LINE_4)
                         counter+=1
-                        if counter>5:
+                        if counter>3:
                             print("\nShutdown\n")
                             os.system("shutdown /s /t 1") #shutdowncmd
                             cv2.destroyAllWindows() 
@@ -91,7 +91,7 @@ def cameravision():
                         cv2.rectangle(handsFrame, (indexX, indexY), (pinkyX, handBottomY), (0, 0, 255), 2)
                         cv2.putText(handsFrame, pext, (pinkyX + 2, indexY - 2), (font), .7,(0, 0, 255), 1, cv2.LINE_4)
                         counter+=1
-                        if counter>5:
+                        if counter>3:
                             print("\nRestart\n")
                             os.system("Shutdown.exe -r -t 00") #restart
                             cv2.destroyAllWindows() 
@@ -101,7 +101,7 @@ def cameravision():
                         cv2.rectangle(handsFrame, (indexX, indexY), (pinkyX, handBottomY), (0, 0, 255), 2)
                         cv2.putText(handsFrame, pext, (pinkyX + 2, indexY - 2), (font), .7,(0, 0, 255), 1, cv2.LINE_4)
                         counter+=1
-                        if counter>5:
+                        if counter>3:
                             print("\nlogoff\n")
                             os.system("Rundll32.exe user32.dll,LockWorkStation") #logoff
                             cv2.destroyAllWindows() 
