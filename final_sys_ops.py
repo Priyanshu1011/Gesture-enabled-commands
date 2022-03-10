@@ -5,8 +5,8 @@
 import cv2
 import mediapipe as mp
 import os
-counter=0
 def cameravision():
+    counter=0
     cap = cv2.VideoCapture(0) #diff for mac
     cap.set(cv2.CAP_PROP_FPS, 30)
     mpHands = mp.solutions.hands
@@ -67,7 +67,7 @@ def cameravision():
                             thumbmid = lms[1]
                             #cv2.circle(handsFrame, (lms[1], lms[2]), 2, (255, 0, 255), cv2.FILLED)
                     if ((indexY < handBottomY) and (indexY > indexmid)) and ((middleY < handBottomY) and (middleY > midmid)) and ((ringY < handBottomY) and (ringY > ringmid)) and ((pinkyY < handBottomY) and (pinkyY > pinkymid)) and (thumbx <= thumbmid) :
-                        global counter
+                        #global counter
                         cv2.rectangle(handsFrame, (indexX, indexY), (pinkyX, handBottomY), (0, 0, 255), 2)
                         cv2.putText(handsFrame, pext, (pinkyX + 2, indexY - 2), (font), .7,(0, 0, 255), 1, cv2.LINE_4)
                         counter+=1
